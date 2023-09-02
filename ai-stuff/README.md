@@ -1,6 +1,6 @@
 # AI Stuff
 
-Welcome to this showcase of using pre-made AI models to build powerful AI applications, with the combined strengths of Hugging Face and ElevenLabs in this case.
+Welcome to this showcase of using pre-made AI models and Next.js 13 to build powerful AI applications, with the combined strengths of Hugging Face and ElevenLabs in this case.
 
 - [Hugging Face](https://huggingface.co/): A leading provider of Natural Language Processing (NLP) tools and pre-trained AI models.
 
