@@ -8,7 +8,7 @@ Welcome to this showcase of using pre-made AI models and Next.js 13 to build pow
 
 > This project was inspired by the Sophomore AI track offered by Learn Web3.
 
-Take a look at a deployed and functioning version: [AI Stuff]()
+Take a look at a deployed and functioning version: [AI Stuff](https://ai-stuff-huggingface-elevenlabs.vercel.app/)
 
 ## Project description
 
