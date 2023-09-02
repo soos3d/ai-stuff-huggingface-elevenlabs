@@ -8,7 +8,9 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-lg font-semibold">
-          <a href="/">AI Stuff</a>
+          <a className="text-3xl" href="/">
+            AI Stuff
+          </a>
         </div>
 
         {/* Standard Navigation Links */}

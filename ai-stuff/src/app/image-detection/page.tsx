@@ -10,6 +10,18 @@ interface IdentifiedObject {
 }
 
 export default function Home() {
+  const tooltipContent = `
+  The image is sent to the API and after the response:
+
+  In src/app/image-detection/page.tsx
+
+  1. The 'identifyThings' function sends the image to the '/api/detect' endpoint.
+  2. The API returns an array of identified objects, which is stored in 'apiResponse'.
+  3. Clicking on a button triggers 'toggleThis', updating 'toShow' with the selected object.
+  4. The 'toShow' state change triggers a re-render.
+  5. A second <img> element is conditionally rendered to display the mask using CSS blend modes.
+  `;
+
   const [theFile, setTheFile] = useState<File | undefined>(undefined);
   const [imagePreview, setImagePreview] = useState<string | undefined>(
     undefined
@@ -155,20 +167,35 @@ export default function Home() {
 
               {/* Identified Objects */}
               {apiResponse && (
-                <div className="mt-4 bg-amber-200 p-4 rounded-md">
+                <div className="mt-4 bg-amber-200 p-4 rounded-md relative">
                   <div className="text-lg mb-4">Identified objects:</div>
                   <div className="flex flex-wrap">
                     {apiResponse.map((e) => (
-                      <div className="mx-2 mb-2" key={e.label}>
+                      <div className="mx-2 mb-2 relative" key={e.label}>
                         <button
                           className="px-4 py-1 bg-blue-600 text-white rounded-md"
                           onClick={() => toggleThis(e.label)}
                         >
                           {e.label}
                         </button>
+                        <div className="tooltip hidden absolute top-0 left-0 z-50 p-2 bg-gray-700 text-white rounded">
+                          Score: {e.score}
+                        </div>
                       </div>
                     ))}
                   </div>
+                  <div className="absolute top-0 right-0">
+                    <div className="info-icon hover-trigger text-blue-600 cursor-pointer mr-5 mt-2">
+                      How does it work?
+                    </div>
+                    <div className="code-tooltip hidden absolute top-0 right-0 z-50 p-2 bg-gray-700 text-white rounded">
+                      {tooltipContent}
+                    </div>
+                  </div>
+                  <p className="mt-4 pr-2 pl-2">
+                    Note that this app is a proof of concept and will miss some
+                    objects sometimes.
+                  </p>
                 </div>
               )}
             </div>

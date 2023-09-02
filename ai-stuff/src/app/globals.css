@@ -29,3 +29,57 @@ body {
 .shadow-custom {
   box-shadow: 0 4px 6px #ff00ff, 0 1px 3px #ff00ff;
 }
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+button:hover + .tooltip {
+  display: block;
+}
+
+.code-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: pre-wrap;
+  width: 300px;
+  width: 300px;
+  display: none; /* Hide by default */
+}
+
+.code-tooltip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.flex-wrap:hover + .code-tooltip {
+  display: block;
+}
+
+.info-icon.hover-trigger:hover + .code-tooltip {
+  display: block; /* Show when hovering over the info icon */
+}
